@@ -1,2 +1,2 @@
-# unkown-heros-theme
-Customized unkwon heros theme child of Hello elementor theme
+# unknown-heroes-theme
+Customized unknown heroes theme child of Hello Elementor theme
