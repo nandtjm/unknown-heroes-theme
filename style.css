@@ -12,3 +12,36 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 */
 
 /* Add your custom styles here */
+
+#header-right-icons a {
+	color:	white;
+}
+
+#fkcart-mini-toggler {
+	color: white;
+}
+
+#header-right-icons .elementor-shortcode ul {
+	justify-content: end;
+	gap: 10px;
+}
+
+.search-form {
+    display: none;
+    position: absolute;
+    top: 22px;
+    right: 0;
+    z-index: 11;
+    margin-top: 20px;
+}
+
+.open .search-form {
+    display: block;
+    padding: 20px;
+    background-color: #FFF;
+    width: 300px;
+}
+
+.search-form input.search-submit {
+    display: none;
+}
