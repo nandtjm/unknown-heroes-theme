@@ -68,3 +68,28 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	flex-wrap: nowrap !important;
 	text-align: left;
 }
+
+.reset_variations {
+	display: none;
+}
+
+.variations tr th {
+	display: none;
+}
+
+.woo-variation-items-wrapper {
+	background-color: transparent;
+    border: none;
+}
+
+.woo-variation-swatches .variable-items-wrapper {
+	justify-content: center;
+    gap: 15px;
+}
+
+.woo-variation-swatches .wvs-style-squared.variable-items-wrapper .variable-item:not(.radio-variable-item).button-variable-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
