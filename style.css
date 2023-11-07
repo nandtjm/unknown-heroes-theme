@@ -54,3 +54,12 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	background-color: #f0f0f0;
 	padding: 20px;
 }
+
+.product-subtitle {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
