@@ -26,3 +26,10 @@ function unkwon_heros_scripts_styles() {
 
 }
 add_action( 'wp_enqueue_scripts', 'unkwon_heros_scripts_styles', 20 );
+
+function ukh_header_right_menu_output($atts, $content = null) {
+    ob_start();
+    include_once get_stylesheet_directory() . '/header-right-menu.php';
+    return ob_get_clean();
+}
+add_shortcode('ukh_header_right_menu', 'ukh_header_right_menu_output');
