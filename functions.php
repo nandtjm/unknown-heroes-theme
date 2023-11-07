@@ -68,13 +68,13 @@ function ukh_product_title( $title, $post_id ) {
 		$color_value = $current_product->get_attribute('pa_color');
 
 		if ( $color_value && $gender_value ) :
-	      $title .= sprintf('<span>%s</span>', esc_html( trim( $gender_value ) ) );
+	      $title .= sprintf('<br><span>%s</span>', esc_html( trim( $gender_value ) ) );
 	      $title .= '<span>|</span>';
 	      $title .= sprintf( '<span>%s</span>', esc_html( trim( $color_value) ) );
 	    elseif( $gender_value ) :
-	      $title .= sprintf('<span>%s<span>', esc_html( trim( $gender_value ) ) );
+	      $title .= sprintf('<br><span>%s<span>', esc_html( trim( $gender_value ) ) );
 	    elseif( $color_value ) :
-	      $title .= sprintf('<span>%s</span>', esc_html( trim( $color_value ) ) );
+	      $title .= sprintf('<br><span>%s</span>', esc_html( trim( $color_value ) ) );
 	    endif;
 
 	}
