@@ -69,7 +69,7 @@ function ukh_product_title( $title, $post_id ) {
 
 		if ( $color_value && $gender_value ) :
 	      $title .= sprintf('<br><span>%s</span>', esc_html( trim( $gender_value ) ) );
-	      $title .= '<span>|</span>';
+	      $title .= '<span> | </span>';
 	      $title .= sprintf( '<span>%s</span>', esc_html( trim( $color_value) ) );
 	    elseif( $gender_value ) :
 	      $title .= sprintf('<br><span>%s<span>', esc_html( trim( $gender_value ) ) );
