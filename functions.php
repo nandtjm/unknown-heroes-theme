@@ -36,7 +36,7 @@ add_shortcode('ukh_header_right_menu', 'ukh_header_right_menu_output');
 
 function ukh_product_title( $title, $post_id ) {
 	
-	if ( get_post_type( $post_id ) === 'product' ) {
+	if ( get_post_type( $post_id ) === 'product' && ! is_admin() ) {
 
 		$gender = $color = $_title = '';
 
