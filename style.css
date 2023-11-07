@@ -65,6 +65,6 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 }
 
 .ukh-icon-list ul {
-	flex-wrap: nowrap;
+	flex-wrap: nowrap !important;
 	text-align: left;
 }
