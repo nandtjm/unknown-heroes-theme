@@ -33,3 +33,53 @@ function ukh_header_right_menu_output($atts, $content = null) {
     return ob_get_clean();
 }
 add_shortcode('ukh_header_right_menu', 'ukh_header_right_menu_output');
+
+function ukh_product_title( $title, $post_id ) {
+	
+	if ( get_post_type( $post_id ) === 'product' ) {
+
+		$gender = $color = $_title = '';
+
+		if (preg_match('/\b(?:Men|Women)\b/i', $title, $genderMatches)) {
+		    $gender = $genderMatches[0];
+		    // Remove the gender from the title
+		    if ( $gender ) {
+		      $title = trim(str_ireplace($gender, "", $title));
+		    }
+		   
+		}
+		$commonColors = ["Red", "Blue", "Green", "Dark", "Light", "Black", "White", "Yellow", "Orange", "Taupe Blue", "Pink", "Rose", "Black Rose", "White Rose", "Taupe Blue", "Purple", "Taupe", "Midnight" ];
+
+		$words = explode(" ", $title);
+		// Iterate through the words to separate color and title
+		foreach ($words as $word) {
+		    if (in_array(trim($word), $commonColors, true)) {
+		        $color .= $word . " ";
+		     }
+		}
+
+		if ( $color ) {
+		  $title = str_ireplace(rtrim($color), "", $title);
+		}
+
+		$current_product = wc_get_product($post_id);
+
+		$gender_value = $current_product->get_attribute('pa_geschlecht');
+		$color_value = $current_product->get_attribute('pa_color');
+
+		if ( $color_value && $gender_value ) :
+	      $title .= sprintf('<span>%s</span>', esc_html( trim( $gender_value ) ) );
+	      $title .= '<span>|</span>';
+	      $title .= sprintf( '<span>%s</span>', esc_html( trim( $color_value) ) );
+	    elseif( $gender_value ) :
+	      $title .= sprintf('<span>%s<span>', esc_html( trim( $gender_value ) ) );
+	    elseif( $color_value ) :
+	      $title .= sprintf('<span>%s</span>', esc_html( trim( $color_value ) ) );
+	    endif;
+
+	}
+
+	return $title;
+}
+
+add_filter( 'the_title', 'ukh_product_title' );
