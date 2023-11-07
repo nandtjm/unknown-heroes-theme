@@ -10,7 +10,7 @@
 		var marginTop = 10;
 		marginTop += $('#main-header').outerHeight();
 		if ( is_admin ) {
-			marginTop += $('#wpadminbar').outerHeight();
+			//marginTop += $('#wpadminbar').outerHeight();
 		}
 		
 		if ( $('.single > .woocommerce-notices-wrapper:visible').length > 0 ) {
