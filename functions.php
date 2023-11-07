@@ -82,4 +82,4 @@ function ukh_product_title( $title, $post_id ) {
 	return $title;
 }
 
-add_filter( 'the_title', 'ukh_product_title' );
+add_filter( 'the_title', 'ukh_product_title', 10, 2 );
