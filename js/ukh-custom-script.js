@@ -7,16 +7,17 @@
 		});
 	
 		var is_admin = $('body').hasClass('admin-bar') ? true : false;
-		var marginTop = $('#main-header').outerHeight();
+		var marginTop = 10;
+		marginTop += $('#main-header').outerHeight();
 		if ( is_admin ) {
 			marginTop += $('#wpadminbar').outerHeight();
 		}
 		
-		if ( $('.single-product > .woocommerce-notices-wrapper:visible').length > 0 ) {
+		if ( $('.single > .woocommerce-notices-wrapper:visible').length > 0 ) {
 			
-			$('.single-product > .woocommerce-notices-wrapper').css('margin-top', marginTop + 'px');
+			$('.single > .woocommerce-notices-wrapper').css('margin-top', marginTop + 'px');
 		} else {
-			$('.single-product main').css('margin-top', marginTop + 'px');
+			$('.single main').css('margin-top', marginTop + 'px');
 		}
 
 	});
