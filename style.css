@@ -70,7 +70,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 }
 
 .reset_variations {
-	display: none;
+	display: none !important;
 }
 
 .variations tr th {
@@ -78,7 +78,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 }
 
 .woo-variation-items-wrapper {
-	background-color: transparent;
+	background-color: transparent !important;
     border: none;
 }
 
