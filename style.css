@@ -49,3 +49,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 .admin-bar #main-header {
 	top: 32px;
 }
+
+.ukh-woocommerce-gallery {
+	background-color: #f0f0f0;
+}
