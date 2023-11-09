@@ -115,3 +115,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     flex: 0 0 25%;
     padding: 10px;
 }
+
+.single_add_to_cart_button {
+    width: 100%;
+}
