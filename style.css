@@ -73,6 +73,14 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	display: none !important;
 }
 
+.woocommerce-variation.single_variation {
+	display: none;
+}
+
+.woocommerce-variation-availability {
+    display: none;
+}
+
 .variations tr th {
 	display: none;
 }
