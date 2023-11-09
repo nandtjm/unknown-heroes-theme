@@ -9,7 +9,7 @@ $category_ids = $current_product->get_category_ids();
 $subcategories = array();
 
 $gender_value = $current_product->get_attribute('pa_geschlecht');
-var_dump( $gender_value );
+
 // Loop through each category ID
 foreach ($category_ids as $category_id) {
     // Get subcategories of the current category
