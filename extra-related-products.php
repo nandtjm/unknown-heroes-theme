@@ -9,7 +9,7 @@ $category_ids = $current_product->get_category_ids();
 $subcategories = array();
 
 $gender_value = $current_product->get_attribute('pa_geschlecht');
-
+var_dump( $gender_value );
 // Loop through each category ID
 foreach ($category_ids as $category_id) {
     // Get subcategories of the current category
@@ -78,7 +78,7 @@ if (count($product_results) < 8) {
 }
 
 ?>
-<ul class="extra-related-product flex" style="flex-wrap: wrap;"><?php
+<ul class="extra-related-product"><?php
 	// Loop through the product IDs
 	foreach ($product_results as $product_result) {
 	    $product_id = $product_result->get_id();
@@ -89,7 +89,7 @@ if (count($product_results) < 8) {
 	    $product_permalink = get_permalink($product_id);
 
 	   	?>
-	   	<li id="product-<?php echo esc_attr( $product_id ); ?>" style="flex: 0 0 25%; padding: 10px;">
+	   	<li id="product-<?php echo esc_attr( $product_id ); ?>">
 	   		<a href="<?php echo esc_url( $product_permalink ); ?>" title="<?php echo esc_attr( __( $product_result->get_name(), 'woocommerce' ) ); ?>">
 	   			<img src="<?php echo esc_url( $product_image_url ); ?>" alt="<?php echo esc_attr( __( $product_result->get_name(), 'woocommerce' ) ); ?>">
 	   		</a>
