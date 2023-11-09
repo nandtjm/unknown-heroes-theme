@@ -101,3 +101,17 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     border-radius: 50%;
     font-size: 1.2rem;
 }
+
+
+.extra-related-product {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.extra-related-product li {
+    flex: 0 0 25%;
+    padding: 10px;
+}
