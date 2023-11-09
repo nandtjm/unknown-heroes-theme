@@ -83,3 +83,11 @@ function ukh_product_title( $title, $post_id ) {
 }
 
 add_filter( 'the_title', 'ukh_product_title', 10, 2 );
+
+
+function extra_related_products_output($atts, $content = null) {
+    ob_start();
+    include_once get_stylesheet_directory() . '/extra-related-products.php';
+    return ob_get_clean();
+}
+add_shortcode('ukh_extra_related_products', 'extra_related_products_output');
