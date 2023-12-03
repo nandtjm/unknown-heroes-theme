@@ -1,14 +1,11 @@
 <?php
 defined('ABSPATH') || exit;
 
-if ( is_admin() ) {
-    $current_product_id = intval( $_GET['post'] );
-    $current_product = wc_get_product( $current_product_id );
-    var_dump($current_product_id);
-} else {
-    $current_product_id = get_the_ID();
-    $current_product = wc_get_product( $current_product_id );
-}
+return;
+
+$current_product_id = get_the_ID();
+$current_product = wc_get_product( $current_product_id );
+
 
 $categories = get_the_terms( $current_product_id, 'product_cat' );
 $primary_term = false;
