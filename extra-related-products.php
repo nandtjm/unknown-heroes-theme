@@ -1,6 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
-var_dump(get_queried_object_id());
+global $post;
+var_dump( $post->ID );
 $current_product = wc_get_product(get_the_ID());
 $categories = get_the_terms( get_the_ID(), 'product_cat' );
 $primary_term = false;
