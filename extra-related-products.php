@@ -63,22 +63,23 @@ if ( ! empty( $sub_categories ) ) {
         }
     }
 } else {
-    
-    $current_category_products = get_products_from_category($primary_term->slug, $gender_value);
+    if ( ! is_wp_error( $primary_term ) ) :
+        $current_category_products = get_products_from_category($primary_term->slug, $gender_value);
 
-    if ($current_category_products) {
-        $product_results = array_merge($product_results, $current_category_products);
-        
-        foreach ($product_results as $key => $id) {
-            if ( get_the_ID() === $id ) {
-                unset($product_results[$key]);
+        if ($current_category_products) {
+            $product_results = array_merge($product_results, $current_category_products);
+            
+            foreach ($product_results as $key => $id) {
+                if ( get_the_ID() === $id ) {
+                    unset($product_results[$key]);
+                }
+            }
+
+            if (count($product_results) > 8) {
+               array_shift( $product_results );
             }
         }
-
-        if (count($product_results) > 8) {
-           array_shift( $product_results );
-        }
-    }
+    endif;
     
 } ?>
 <ul class="extra-related-product flex" style="flex-wrap: wrap; flex-direction: row; align-items: flex-start;"><?php
