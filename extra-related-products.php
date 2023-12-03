@@ -1,13 +1,19 @@
 <?php
 defined('ABSPATH') || exit;
-global $post;
-var_dump( $post->ID );
-$current_product = wc_get_product(get_the_ID());
-$categories = get_the_terms( get_the_ID(), 'product_cat' );
+
+if ( is_admin() ) {
+    $current_product_id = $_GET['post'];
+    $current_product = wc_get_product($current_product_id);
+} else {
+    $current_product_id = get_the_ID();
+    $current_product = wc_get_product( $current_product_id );
+}
+
+$categories = get_the_terms( $current_product_id, 'product_cat' );
 $primary_term = false;
 
 if ( class_exists('WPSEO_Primary_Term') ) {
-    $wpseo_primary_term = new WPSEO_Primary_Term( 'product_cat', get_the_id() );
+    $wpseo_primary_term = new WPSEO_Primary_Term( 'product_cat', $current_product_id );
     $wpseo_primary_term = $wpseo_primary_term->get_primary_term();
     $primary_term = get_term( $wpseo_primary_term );
 }
@@ -53,7 +59,7 @@ if ( ! empty( $sub_categories ) ) {
             $product_results = array_merge($product_results, $current_category_products);
             
             foreach ($product_results as $key => $id) {
-                if ( get_the_ID() === $id ) {
+                if ( $current_product_id === $id ) {
                     unset($product_results[$key]);
                 }
             }
@@ -71,7 +77,7 @@ if ( ! empty( $sub_categories ) ) {
             $product_results = array_merge($product_results, $current_category_products);
             
             foreach ($product_results as $key => $id) {
-                if ( get_the_ID() === $id ) {
+                if ( $current_product_id === $id ) {
                     unset($product_results[$key]);
                 }
             }
