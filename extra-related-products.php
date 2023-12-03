@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 if ( is_admin() ) {
     $current_product_id = $_GET['post'];
     $current_product = wc_get_product( $current_product_id );
-    var_dump($current_product);
+    var_dump($current_product_id);
 } else {
     $current_product_id = get_the_ID();
     $current_product = wc_get_product( $current_product_id );
