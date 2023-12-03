@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
-var_dump(get_the_ID);
+var_dump(get_the_ID());
 $current_product = wc_get_product(get_the_ID());
 $categories = get_the_terms( get_the_ID(), 'product_cat' );
 $primary_term = false;
