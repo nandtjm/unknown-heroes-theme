@@ -10,7 +10,8 @@
 		var marginTop = 10;
 		marginTop += $('#main-header').outerHeight();
 		if ( is_admin ) {
-			marginTop += $('#wpadminbar').outerHeight();
+			// Already added via CSS
+			//marginTop += $('#wpadminbar').outerHeight();
 		}
 		
 		$('#main-content').css('margin-top', marginTop + 'px');
