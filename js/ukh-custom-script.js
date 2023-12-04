@@ -10,16 +10,11 @@
 		var marginTop = 10;
 		marginTop += $('#main-header').outerHeight();
 		if ( is_admin ) {
-			//marginTop += $('#wpadminbar').outerHeight();
+			marginTop += $('#wpadminbar').outerHeight();
 		}
 		
-		if ( $('.single > .woocommerce-notices-wrapper:visible').length > 0 ) {
-			
-			$('.single > .woocommerce-notices-wrapper').css('margin-top', marginTop + 'px');
-		} else {
-			$('.single main').css('margin-top', marginTop + 'px');
-		}
-
+		$('#main-content').css('margin-top', marginTop + 'px');
+		
 		$( document.body ).on( 'woocommerce_variation_has_changed', function(e) {
 			if ( $('.summary .single_add_to_cart_button.disabled').length > 0 &&
 				$('.summary .variable-item.no-stock').length > 0 ) {
