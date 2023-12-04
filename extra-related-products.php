@@ -1,8 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
 
-return;
-
 $current_product_id = get_the_ID();
 $current_product = wc_get_product( $current_product_id );
 
