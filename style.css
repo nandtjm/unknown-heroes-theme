@@ -128,3 +128,9 @@ a {
 .single_add_to_cart_button {
     width: 100%;
 }
+
+/* Fixed margin-top in Elementor editor */
+
+.single-elementor_library #main-content {
+    margin-top: 80px;
+}
