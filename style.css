@@ -136,5 +136,5 @@ a {
 }
 
 .single .product_type_variable.add_to_cart_button {
-    display: none;
+    display: none !important;
 }
