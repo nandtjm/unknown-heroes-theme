@@ -134,3 +134,7 @@ a {
 .single-elementor_library #main-content {
     margin-top: 80px;
 }
+
+.single .product_type_variable.add_to_cart_button {
+    display: none;
+}
