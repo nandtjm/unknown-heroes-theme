@@ -135,6 +135,10 @@ a {
     margin-top: 80px;
 }
 
-.single .product_type_variable.add_to_cart_button {
+#ukh-related .product_type_variable.add_to_cart_button {
     display: none !important;
+}
+
+#ukh-related .price {
+    text-align: left !important;
 }
