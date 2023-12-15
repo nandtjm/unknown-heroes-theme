@@ -142,3 +142,8 @@ a {
 #ukh-related .price {
     text-align: right !important;
 }
+
+#ukh-related .product-subtitle {
+    font-size: 1rem;
+    list-style: 1.25rem;
+}
