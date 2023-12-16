@@ -135,7 +135,8 @@ a {
     margin-top: 80px;
 }
 
-#ukh-related .product_type_variable.add_to_cart_button {
+#ukh-related .product_type_variable.add_to_cart_button,
+#ukh-related .product_type_variable.wvs-add-to-cart-button {
     display: none !important;
 }
 
