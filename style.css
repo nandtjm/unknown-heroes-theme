@@ -149,3 +149,8 @@ a {
     font-size: 1rem;
     line-height: 1.2rem;
 }
+
+#ukh-related ul.products {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
