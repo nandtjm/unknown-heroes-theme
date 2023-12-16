@@ -9,7 +9,7 @@
 		var is_admin = $('body').hasClass('admin-bar') ? true : false;
 		var marginTop = 10;
 		marginTop += $('#main-header').outerHeight();
-		if ( is_admin ) {
+		if ( is_admin && $(window).width() < 768 ) {
 			// Already added via CSS
 			//marginTop += $('#wpadminbar').outerHeight();
 		}

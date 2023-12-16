@@ -55,10 +55,6 @@ a {
     display: none;
 }
 
-.admin-bar #main-header {
-	top: 32px;
-}
-
 .ukh-woocommerce-gallery {
 	background-color: #f0f0f0;
 	padding: 20px;
@@ -153,6 +149,18 @@ a {
 #ukh-related ul.products {
     background-color: #f0f0f0;
     padding: 20px;
+}
+
+@media (min-width: 767px) {
+    .admin-bar #main-header {
+        top: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    #wpadminbar {
+        z-index: -1;
+    }
 }
 
 
