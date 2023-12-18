@@ -151,6 +151,20 @@ a {
     padding: 20px;
 }
 
+
+/* Product Filter */
+    .filter-title {
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+
+    .filter-title::after {
+        border-bottom: 2px solid;
+    }
+/* End Product Filter */
+
+
 @media (min-width: 767px) {
     .admin-bar #main-header {
         top: 32px;
