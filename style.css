@@ -151,6 +151,10 @@ a {
     padding: 20px;
 }
 
+.woocommerce-shop .add_to_cart_button {
+    display: none;
+}
+
 
 /* Product Filter */
     .filter-title {
