@@ -132,15 +132,18 @@ a {
 }
 
 #ukh-related .product_type_variable.add_to_cart_button,
-#ukh-related .product_type_variable.wvs-add-to-cart-button {
+#ukh-related .product_type_variable.wvs-add-to-cart-button,
+.woocommerce-shop .add_to_cart_button {
     display: none !important;
 }
 
-#ukh-related .price {
+#ukh-related .price,
+.woocommerce-shop .price {
     text-align: right !important;
 }
 
-#ukh-related .product-subtitle {
+#ukh-related .product-subtitle,
+.woocommerce-shop .product-subtitle {
     justify-content: start;
     font-size: 1rem;
     line-height: 1.2rem;
@@ -150,11 +153,6 @@ a {
     background-color: #f0f0f0;
     padding: 20px;
 }
-
-.woocommerce-shop .add_to_cart_button {
-    display: none;
-}
-
 
 /* Product Filter */
     .filter-title {
