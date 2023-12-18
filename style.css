@@ -100,6 +100,11 @@ a {
     gap: 15px;
 }
 
+.woocommerce-shop .woo-variation-swatches .variable-items-wrapper {
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+
 .woo-variation-swatches .wvs-style-squared.variable-items-wrapper .variable-item:not(.radio-variable-item).button-variable-item {
     width: 50px;
     height: 50px;
