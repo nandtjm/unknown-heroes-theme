@@ -118,6 +118,12 @@ a {
     padding-right: 15px;
 }
 
+.woocommerce-shop .price {
+    font-size: 17px;
+    color: #000;
+    font-weight: bold;
+}
+
 
 .extra-related-product {
     display: flex;
