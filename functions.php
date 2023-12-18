@@ -91,3 +91,9 @@ function extra_related_products_output($atts, $content = null) {
     return ob_get_clean();
 }
 add_shortcode('ukh_extra_related_products', 'extra_related_products_output');
+
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+
+add_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20);
+
+
