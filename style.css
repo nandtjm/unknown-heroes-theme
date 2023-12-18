@@ -100,7 +100,7 @@ a {
     gap: 15px;
 }
 
-.woocommerce-shop .woo-variation-swatches .variable-items-wrapper {
+.woocommerce-shop.woo-variation-swatches .variable-items-wrapper {
     flex-wrap: nowrap;
     gap: 10px;
 }
