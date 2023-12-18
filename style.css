@@ -112,6 +112,12 @@ a {
     font-size: 1.2rem;
 }
 
+.woocommerce-shop .woocommerce-loop-product__title,
+.woocommerce-shop .price {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 
 .extra-related-product {
     display: flex;
