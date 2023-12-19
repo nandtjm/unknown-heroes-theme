@@ -128,7 +128,7 @@ a {
     font-weight: 700 !important;
 }
 
-.woocommerce-shop input[type=checkbox] {
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > input {
    background-color: #b79729 !important;
 }
 
