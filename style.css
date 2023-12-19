@@ -119,7 +119,7 @@ a {
 }
 
 .woocommerce-shop .products {
-    margin-bottom: 20px;
+    margin-bottom: 30px !important;
 }
 
 .extra-related-product {
