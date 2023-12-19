@@ -122,13 +122,14 @@ a {
     margin-bottom: 30px !important;
 }
 
-.woocommerce-shop .input[type="checkbox"] {
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > label > a {
     color: #000 !important;
-    background-color: #b79729 !important;
+    font-weight: 700 !important;
 }
 
 .woocommerce-shop .input[type="checkbox"]:checked {
-    font-weight: 700 !important;
+   background-color: #b79729 !important;
 }
 
 .extra-related-product {
