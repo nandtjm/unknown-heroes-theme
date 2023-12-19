@@ -122,6 +122,15 @@ a {
     margin-bottom: 30px !important;
 }
 
+.woocommerce-shop .input[type="checkbox"] {
+    color: #000 !important;
+    background-color: #b79729 !important;
+}
+
+.woocommerce-shop .input[type="checkbox"]:checked {
+    font-weight: 700 !important;
+}
+
 .extra-related-product {
     display: flex;
     flex-wrap: wrap;
