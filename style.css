@@ -128,7 +128,7 @@ a {
     font-weight: 700 !important;
 }
 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > input {
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active  > label > input {
    background-color: #b79729 !important;
 }
 
