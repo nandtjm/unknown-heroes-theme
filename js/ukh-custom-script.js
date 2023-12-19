@@ -40,5 +40,9 @@
 			$(".CookiebotWidget-logo").trigger("click");
 		});
 
+		if ( $('body').hasClass('woocommerce-shop') ) {
+			$('.yith-wcan-reset-filters').text('Zurücksetzen');
+		}
+
 	});
 })(jQuery);
