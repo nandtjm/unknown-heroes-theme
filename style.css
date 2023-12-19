@@ -128,7 +128,7 @@ a {
     font-weight: 700 !important;
 }
 
-.woocommerce-shop .input[type=checkbox]:checked {
+.woocommerce-shop input[type=checkbox] {
    background-color: #b79729 !important;
 }
 
