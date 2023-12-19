@@ -118,6 +118,10 @@ a {
     padding-right: 15px;
 }
 
+.woocommerce-shop .products {
+    margin-bottom: 20px;
+}
+
 .extra-related-product {
     display: flex;
     flex-wrap: wrap;
