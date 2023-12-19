@@ -129,7 +129,7 @@ a {
 }
 
 .yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active  > label > input {
-   background-color: #b79729 !important;
+   accent-color: darkgoldenrod; /* #b79729 !important; */
 }
 
 .extra-related-product {
