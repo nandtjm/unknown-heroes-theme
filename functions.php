@@ -96,36 +96,35 @@ remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_lo
 
 add_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 20);
 
-function custom_product_permalink($permalink, $post, $leavename, $sample) {
-    // Check if the post type is "product"
-    if ($post->post_type == 'product') {
-        $terms = wp_get_post_terms($post->ID, 'product_cat');
-        
-        // Check if there are any product categories assigned to the product
-        if (!empty($terms)) {
-            $category = $terms[0]; // Assuming only one category is assigned
-            $parent_category = $category->parent ? get_term($category->parent, 'product_cat') : null;
-            
-            // Build the new permalink structure
-            if ($parent_category) {
-                $permalink = home_url("/{$parent_category->slug}/specific-word/{$category->slug}/");
-            } else {
-                $permalink = home_url("/{$category->slug}/specific-word/");
-            }
-        }
+function custom_woocommerce_category_permalink($url, $term, $taxonomy) {
+    if ($taxonomy == 'product_cat') {
+        $url = str_replace('/product-category/', '/', $url);
     }
-    
-    return $permalink;
+    return $url;
 }
 
-add_filter('post_type_link', 'custom_product_permalink', 10, 4);
+add_filter('term_link', 'custom_woocommerce_category_permalink', 10, 3);
 
-// Flush rewrite rules on activation to ensure the new permalink structure is applied
-function custom_flush_rewrite_rules() {
+function custom_woocommerce_rewrite_rules($rules) {
+    $new_rules = array();
+
+    // Remove product-category base from category URLs
+    foreach ($rules as $key => $rule) {
+        $new_rules[ str_replace('product-category/', '', $key) ] = $rule;
+    }
+
+    return $new_rules;
+}
+
+add_filter('rewrite_rules_array', 'custom_woocommerce_rewrite_rules');
+
+// Flush rewrite rules on activation
+function custom_woocommerce_flush_rewrite_rules() {
     flush_rewrite_rules();
 }
 
-register_activation_hook(__FILE__, 'custom_flush_rewrite_rules');
+register_activation_hook(__FILE__, 'custom_woocommerce_flush_rewrite_rules');
+
 
 
 
