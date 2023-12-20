@@ -131,7 +131,7 @@ function add_custom_endpoint() {
 add_action('init', 'add_custom_endpoint');
 
 function custom_brand_endpoint_query($query) {
-    if (!is_admin() && $query->is_main_query() && && $query->get('brand')) {
+    if (!is_admin() && $query->is_main_query() && $query->get('brand')) {
         $query->set('tax_query', array(
             array(
                 'taxonomy' => 'pa_brand',
