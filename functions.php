@@ -130,20 +130,28 @@ function add_custom_endpoint() {
 }
 add_action('init', 'add_custom_endpoint');
 
-function custom_brand_endpoint_query($query) {
-    if (!is_admin() && $query->is_main_query() && $query->get('brand')) {
-        $query->set('tax_query', array(
+function custom_brand_endpoint_redirect() {
+    global $wp_query;
+    if (isset($wp_query->query_vars['brand'])) {
+        $brand_slug = sanitize_text_field($wp_query->query_vars['brand']);
+        $tax_query = array(
             array(
                 'taxonomy' => 'pa_brand',
                 'field' => 'slug',
-                'terms' => $query->get('brand'),
+                'terms' => $brand_slug,
             ),
-        ));
-        $query->set('post_type', 'product');
-        $query->is_tax = true;
+        );
+
+        $args = array(
+            'post_type' => 'product',
+            'tax_query' => $tax_query,
+        );
+
+        query_posts($args);
     }
 }
-add_action('pre_get_posts', 'custom_brand_endpoint_query');
+add_action('template_redirect', 'custom_brand_endpoint_redirect');
+
 
 
 
