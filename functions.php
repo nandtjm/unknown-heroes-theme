@@ -128,7 +128,7 @@ register_activation_hook(__FILE__, 'custom_woocommerce_flush_rewrite_rules');
 function add_custom_endpoint() {
  	add_rewrite_rule('^brand/([^/]+)/?', 'index.php?brand=$matches[1]', 'top');
 }
-add_action('init', 'add_custom_endpoint');
+//add_action('init', 'add_custom_endpoint');
 
 function custom_brand_endpoint_redirect() {
     global $wp_query;
