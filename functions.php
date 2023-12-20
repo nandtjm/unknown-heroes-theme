@@ -125,6 +125,27 @@ function custom_woocommerce_flush_rewrite_rules() {
 
 register_activation_hook(__FILE__, 'custom_woocommerce_flush_rewrite_rules');
 
+function add_custom_endpoint() {
+    add_rewrite_endpoint('brand', EP_ROOT | EP_PAGES);
+}
+add_action('init', 'add_custom_endpoint');
+
+function custom_brand_endpoint_query($query) {
+    if (!is_admin() && $query->is_main_query() && && $query->get('brand')) {
+        $query->set('tax_query', array(
+            array(
+                'taxonomy' => 'pa_brand',
+                'field' => 'slug',
+                'terms' => $query->get('brand'),
+            ),
+        ));
+        $query->set('post_type', 'product');
+        $query->is_tax = true;
+    }
+}
+add_action('pre_get_posts', 'custom_brand_endpoint_query');
+
+
 
 
 
