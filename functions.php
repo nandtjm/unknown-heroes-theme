@@ -132,7 +132,7 @@ add_action('init', 'add_custom_endpoint');
 
 function custom_brand_endpoint_redirect() {
     global $wp_query;
-    var_dump($_GET['brand']);
+    var_dump($_GET);
     if (isset($wp_query->query_vars['brand'])) {
         $brand_slug = sanitize_text_field($wp_query->query_vars['brand']);
         $tax_query = array(
