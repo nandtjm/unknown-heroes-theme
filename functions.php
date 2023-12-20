@@ -153,6 +153,23 @@ function custom_brand_endpoint_redirect() {
 }
 //add_action('template_redirect', 'custom_brand_endpoint_redirect');
 
+function custom_brand_endpoint_query($query) {
+    if (!is_admin() && $query->is_main_query() && $query->get('brand')) {
+        $brand_slug = sanitize_text_field($query->get('brand'));
+        $tax_query = array(
+            array(
+                'taxonomy' => 'pa_brand',
+                'field'    => 'slug',
+                'terms'    => $brand_slug,
+            ),
+        );
+
+        $query->set('tax_query', $tax_query);
+        $query->set('post_type', 'product');
+    }
+}
+add_action('pre_get_posts', 'custom_brand_endpoint_query');
+
 
 
 
