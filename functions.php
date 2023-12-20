@@ -126,13 +126,13 @@ function custom_woocommerce_flush_rewrite_rules() {
 register_activation_hook(__FILE__, 'custom_woocommerce_flush_rewrite_rules');
 
 function add_custom_endpoint() {
-    add_rewrite_endpoint('brand', EP_ROOT | EP_PAGES);
+ 	add_rewrite_rule('^brand/([^/]+)/?', 'index.php?brand=$matches[1]', 'top');
 }
 add_action('init', 'add_custom_endpoint');
 
 function custom_brand_endpoint_redirect() {
     global $wp_query;
-    var_dump(get_query_var('brand'));
+
     if (isset($wp_query->query_vars['brand'])) {
         $brand_slug = sanitize_text_field($wp_query->query_vars['brand']);
         $tax_query = array(
@@ -151,7 +151,7 @@ function custom_brand_endpoint_redirect() {
         query_posts($args);
     }
 }
-add_action('template_redirect', 'custom_brand_endpoint_redirect');
+//add_action('template_redirect', 'custom_brand_endpoint_redirect');
 
 
 
