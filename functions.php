@@ -171,9 +171,9 @@ function custom_brand_endpoint_query($query) {
 }
 //add_action('pre_get_posts', 'custom_brand_endpoint_query');
 
-// global $wp_rewrite;
-// echo '<pre>';
-// print_r($wp_rewrite->wp_rewrite_rules());
+global $wp_rewrite;
+echo '<pre>';
+print_r($wp_rewrite->wp_rewrite_rules());
 
 
 
