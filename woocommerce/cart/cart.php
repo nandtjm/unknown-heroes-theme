@@ -25,10 +25,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
 			<tr>
-				<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></span></th>
 				<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></span></th>
 				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
 				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
 				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
 			</tr>
@@ -54,23 +52,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 					?>
 					<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-
-						<td class="product-remove">
-							<?php
-								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-									'woocommerce_cart_item_remove_link',
-									sprintf(
-										'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-										esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-										/* translators: %s is the product name */
-										esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
-										esc_attr( $product_id ),
-										esc_attr( $_product->get_sku() )
-									),
-									$cart_item_key
-								);
-							?>
-						</td>
 
 						<td class="product-thumbnail">
 						<?php
@@ -107,12 +88,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
 						}
 						?>
-						</td>
-
-						<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-							<?php
-								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-							?>
 						</td>
 
 						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
@@ -155,7 +130,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
 
 			<tr>
-				<td colspan="6" class="actions">
+				<td colspan="4" class="actions">
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
