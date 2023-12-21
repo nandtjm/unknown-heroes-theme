@@ -30,7 +30,7 @@ class Product_Brands_Condition extends \ElementorPro\Modules\ThemeBuilder\Condit
 	}
 
 	public function check( $args ) {
-		return is_product_taxonomy() || true;
+		return is_product_taxonomy();
 	}
 
 }
