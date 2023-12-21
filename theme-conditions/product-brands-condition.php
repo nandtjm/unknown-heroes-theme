@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Product_Brands_Condition extends \ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base {
 
 	public static function get_type() {
-		return 'archive';
+		return 'singular';
 	}
 
 	public function get_name() {
