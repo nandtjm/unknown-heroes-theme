@@ -169,11 +169,20 @@ function custom_brand_endpoint_query($query) {
         $query->set('post_type', 'product');
     }
 }
-add_action('pre_get_posts', 'custom_brand_endpoint_query');
+//add_action('pre_get_posts', 'custom_brand_endpoint_query');
 
 //global $wp_rewrite;
 // echo '<pre>';
 // print_r($wp_rewrite->wp_rewrite_rules());
+
+function add_product_brand_conditions( $conditions_manager ) {
+
+	require_once( __DIR__ . '/theme-conditions/product-brands-condition.php' );
+	require_once( __DIR__ . '/theme-conditions/product-brand-condition.php' );
+
+	$conditions_manager->get_condition( 'archive' )->register_sub_condition( new \Product_Brands_Condition() );
+}
+add_action( 'elementor/theme/register_conditions', 'add_product_brand_conditions' );
 
 
 
