@@ -103,7 +103,7 @@ function add_product_brand_conditions( $conditions_manager ) {
 
 	$conditions_manager->get_condition( 'archive' )->register_sub_condition( new \Product_Brands_Condition() );
 }
-add_action( 'elementor/theme/register_conditions', 'add_product_brand_conditions' );
+//add_action( 'elementor/theme/register_conditions', 'add_product_brand_conditions' );
 
 
 
