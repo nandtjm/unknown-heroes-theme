@@ -210,9 +210,6 @@ a {
         margin-top: 7px !important;
     }
 /* End Product Filter */
-#wpadminbar {
-    z-index: -1;
-}
 
 @media (min-width: 767px) {
     .admin-bar #main-header {
