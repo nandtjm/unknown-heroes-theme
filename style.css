@@ -211,6 +211,15 @@ a {
     }
 /* End Product Filter */
 
+/* woocommerce-cart */
+    .woocommerce-cart table,
+    .woocommerce-cart tr,
+    .woocommerce-cart th,
+    .woocommerce-cart td {
+        border: none !important;
+    }
+/* end woocommerce-cart */
+
 @media (min-width: 767px) {
     .admin-bar #main-header {
         top: 32px;
