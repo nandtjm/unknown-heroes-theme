@@ -106,7 +106,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 echo 'Lieferzeit: ' . $delivery_time;
                             } else {
                             	if ( function_exists( 'wc_gzd_get_gzd_product' ) ) {
-	                                $delivery_time = wc_gzd_get_gzd_product( $product )->get_delivery_time_html();
+	                                $delivery_time = wc_gzd_get_gzd_product( $_product )->get_delivery_time_html();
 	                                echo str_replace(['{', '}'], '', $delivery_time);
 	                            }
                             }
