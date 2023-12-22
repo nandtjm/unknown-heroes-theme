@@ -34,8 +34,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	        </svg>
 	    </a>
 	</li>
-	<li class="elementor-icon-list-item elementor-inline-item relative cart-i">
-		<?php echo do_shortcode( '[fk_cart_menu]' ); ?>
-	</li>
 </ul>
 	
