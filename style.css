@@ -228,7 +228,22 @@ a {
     }
 
     .woocommerce-cart .product-name > a {
-        color: #000 !important;
+        font-weight: 700;
+    }
+
+    .quantity-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .quantity-group .quantity > a {
+        color: red !important;
+        font-weight: 700;
+    }
+
+    .product-subtotal span {
+        font-weight: 700;
     }
 
 /* end woocommerce-cart */
