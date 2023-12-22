@@ -101,7 +101,7 @@ a {
 }
 
 .woocommerce-shop.woo-variation-swatches .variable-items-wrapper,
-.tax-product_cat.woo-variation-swatches .variable-items-wrapper {
+.tax-product_cat.woo-variation-swatches .variable-items-wrapper,
 .tax-pa_brand.woo-variation-swatches .variable-items-wrapper {
     flex-wrap: nowrap;
     gap: 10px;
@@ -125,7 +125,7 @@ a {
 }
 
 .woocommerce-shop .products,
-.tax-product_cat .products {
+.tax-product_cat .products,
 .tax-pa_brand .products {
     margin-bottom: 30px !important;
 }
@@ -168,21 +168,21 @@ a {
 .woocommerce-shop .add_to_cart_button,
 .tax-product_cat .add_to_cart_button,
 .tax-product_cat .product_type_variable.wvs-add-to-cart-button,
-.tax-pa_brand .add_to_cart_button, {
-.tax-pa_brand .product_type_variable.wvs-add-to-cart-button, {
+.tax-pa_brand .add_to_cart_button,
+.tax-pa_brand .product_type_variable.wvs-add-to-cart-button {
     display: none !important;
 }
 
 #ukh-related .price,
 .woocommerce-shop .price,
-.tax-product_cat .price {
+.tax-product_cat .price,
 .tax-pa_brand .price {
     text-align: right !important;
 }
 
 #ukh-related .product-subtitle,
 .woocommerce-shop .product-subtitle,
-.tax-product_cat .product-subtitle {
+.tax-product_cat .product-subtitle,
 .tax-pa_brand .product-subtitle {
     justify-content: start;
     font-size: 1rem;
