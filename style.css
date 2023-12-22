@@ -162,7 +162,8 @@ a {
 #ukh-related .product_type_variable.add_to_cart_button,
 #ukh-related .product_type_variable.wvs-add-to-cart-button,
 .woocommerce-shop .add_to_cart_button,
-.tax-product_cat .add_to_cart_button {
+.tax-product_cat .add_to_cart_button,
+.tax-product_cat .product_type_variable.wvs-add-to-cart-button {
     display: none !important;
 }
 
