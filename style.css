@@ -218,6 +218,19 @@ a {
     .woocommerce-cart td {
         border: none !important;
     }
+
+    .woocommerce-cart table thead:first-child tr:first-child th {
+        background-color: rgba(209,213,219,1);
+    }
+
+    .woocommerce-cart table tbody>tr:nth-child(odd)>td, table tbody>tr:nth-child(odd)>th {
+        background-color: transparent !important;
+    }
+
+    .woocommerce-cart .product-name > a {
+        color: #000 !important;
+    }
+
 /* end woocommerce-cart */
 
 @media (min-width: 767px) {
