@@ -266,6 +266,15 @@ a {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    #header-right-icons .elementor-shortcode ul {
+        gap: 5px;
+    }
+
+    #header-right-icons .elementor-shortcode .search svg {
+        width: 15px !important;
+        height: 15px !important;
+    }
 }
 
 
