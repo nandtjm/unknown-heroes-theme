@@ -248,6 +248,30 @@ a {
 
 /* end woocommerce-cart */
 
+/* Woocommerce MyAccount  */
+    .woocommerce-MyAccount-content a{border-bottom: 1px solid;text-decoration: none !important;} 
+
+    .woocommerce-MyAccount-navigation li a{    background-color: rgba(183,151,41,1);
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 300px;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bold;
+    display: block;}
+    .woocommerce-Address-title a, .woocommerce-Address-title a:hover{background-color: rgba(183,151,41,1);
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 180px;
+    padding: 5px 15px;
+    text-align: center;
+    font-weight: bold;
+    display: block;}
+    .edit-account .woocommerce-Button.button{margin: 0 auto !important;display: table !important;}
+/* End Woocommerce MyAccount  */
+
 @media (min-width: 767px) {
     .admin-bar #main-header {
         top: 32px;
