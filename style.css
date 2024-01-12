@@ -259,7 +259,9 @@ a {
     padding: 10px 20px;
     text-align: center;
     font-weight: bold;
-    display: block;}
+    display: block;
+    text-decoration: none;
+    }
     .woocommerce-Address-title a, .woocommerce-Address-title a:hover{background-color: rgba(183,151,41,1);
     color: #fff;
     border-radius: 5px;
@@ -268,7 +270,7 @@ a {
     padding: 5px 15px;
     text-align: center;
     font-weight: bold;
-    text-decoration: none;
+
     display: block;}
     .edit-account .woocommerce-Button.button{margin: 0 auto !important;display: table !important;}
 /* End Woocommerce MyAccount  */
