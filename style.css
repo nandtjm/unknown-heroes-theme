@@ -249,6 +249,9 @@ a {
 /* end woocommerce-cart */
 
 /* Woocommerce MyAccount  */
+    .woocommerce-MyAccount-navigation > ul {
+        list-style: none !important;
+    }
     .woocommerce-MyAccount-content a{border-bottom: 1px solid;text-decoration: none !important;} 
 
     .woocommerce-MyAccount-navigation li a{    background-color: rgba(183,151,41,1);
