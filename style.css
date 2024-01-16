@@ -278,6 +278,19 @@ a {
     .edit-account .woocommerce-Button.button{margin: 0 auto !important;display: table !important;}
 /* End Woocommerce MyAccount  */
 
+/* Start Woocommerce Product Column Buttons  */
+    .CollectionToolbar__LayoutType {
+        padding: 0;
+        overflow: visible;
+        background: none;
+        border: none;
+        border-radius: 0;
+        margin: 0 6px;
+        opacity: .2;
+        transition: opacity .25s ease-in-out;
+    }
+/* End Woocommerce Product Column Buttons  */
+
 @media (min-width: 767px) {
     .admin-bar #main-header {
         top: 32px;
