@@ -44,5 +44,13 @@
 			$('.yith-wcan-reset-filters').text('Zurücksetzen');
 		}
 
+		$('#two-cols-view').on('click', function() {
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr) !important' );
+		});
+
+		$('#four-cols-view').on('click', function() {
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(4,1fr) !important' );
+		});
+
 	});
 })(jQuery);

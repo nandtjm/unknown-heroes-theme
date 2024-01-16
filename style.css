@@ -279,15 +279,8 @@ a {
 /* End Woocommerce MyAccount  */
 
 /* Start Woocommerce Product Column Buttons  */
-    .CollectionToolbar__LayoutType {
-        padding: 0;
-        overflow: visible;
-        background: none;
-        border: none;
-        border-radius: 0;
-        margin: 0 6px;
-        opacity: .2;
-        transition: opacity .25s ease-in-out;
+    .prod-col-grid {
+        cursor: pointer;
     }
 /* End Woocommerce Product Column Buttons  */
 
