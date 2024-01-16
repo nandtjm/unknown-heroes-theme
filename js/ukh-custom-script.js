@@ -54,5 +54,10 @@
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(4,1fr)' );
 		});
 
+		$('#one-col-grid').on('click', function() {
+			console.log('one col clicked');
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
+		});
+
 	});
 })(jQuery);
