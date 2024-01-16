@@ -54,6 +54,11 @@
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(4,1fr)' );
 		});
 
+		$('#two-cols-view-mobile').on('click', function() {
+			console.log('two col clicked');
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr)' );
+		});
+
 		$('#one-col-grid').on('click', function() {
 			console.log('one col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
