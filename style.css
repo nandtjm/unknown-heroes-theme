@@ -276,6 +276,10 @@ a {
 
     display: block;}
     .edit-account .woocommerce-Button.button{margin: 0 auto !important;display: table !important;}
+    .woocommerce button.button {
+        background-color: #b79729;
+        color: #FFF;
+    }
 /* End Woocommerce MyAccount  */
 
 /* Start Woocommerce Product Column Buttons  */
