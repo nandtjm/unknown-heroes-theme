@@ -45,10 +45,12 @@
 		}
 
 		$('#two-cols-view').on('click', function() {
+			console.log('two col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr) !important' );
 		});
 
 		$('#four-cols-view').on('click', function() {
+			console.log('four col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(4,1fr) !important' );
 		});
 
