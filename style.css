@@ -288,9 +288,17 @@ a {
     }
 /* End Woocommerce Product Column Buttons  */
 
+#e-n-menu-title-1134 {
+    display: none;
+}
+
 @media (min-width: 767px) {
     .admin-bar #main-header {
         top: 32px;
+    }
+
+    #e-n-menu-title-1134 {
+        display: flex;
     }
 }
 
