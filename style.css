@@ -289,7 +289,7 @@ a {
 /* End Woocommerce Product Column Buttons  */
 
 #e-n-menu-title-1134 {
-    display: none;
+    display: none !important;
 }
 
 @media (min-width: 767px) {
@@ -298,7 +298,7 @@ a {
     }
 
     #e-n-menu-title-1134 {
-        display: flex;
+        display: flex !important;
     }
 }
 
