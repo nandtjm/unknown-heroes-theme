@@ -296,15 +296,15 @@ a {
     .admin-bar #main-header {
         top: 32px;
     }
-
-    #e-n-menu-title-1134 {
-        display: flex !important;
-    }
 }
 
 @media (max-width: 768px) {
     #wpadminbar {
         z-index: -1;
+    }
+
+    #e-n-menu-title-1134 {
+        display: flex !important;
     }
 }
 
