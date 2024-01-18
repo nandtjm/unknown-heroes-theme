@@ -64,5 +64,17 @@
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
 		});
 
+		if ( $('body').hasClass('woocommerce-shop') ) {
+			$('.button-variable-item').on('click', function(e) {
+				e.preventDefault();
+				var sizeValue = $(this).attr('data-value'),
+					productUrl = $(this).closest('.product').find('.woocommerce-LoopProduct-link').attr('href'),
+					redirectProductUrl = productUrl + '?size=' + sizeValue;
+
+				window.href.location = redirectProductUrl;
+
+			})
+		}
+
 	});
 })(jQuery);
