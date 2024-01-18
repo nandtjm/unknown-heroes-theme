@@ -71,7 +71,7 @@
 					productUrl = $(this).closest('.product').find('.woocommerce-LoopProduct-link').attr('href'),
 					redirectProductUrl = productUrl + '?size=' + sizeValue;
 
-				window.href.location = redirectProductUrl;
+				window.location.href = redirectProductUrl;
 
 			})
 		}
