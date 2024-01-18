@@ -30,6 +30,7 @@
 		if (searchParams.has('size')) {
 			let sizeValue = searchParams.get('size');
 			setTimeout(function(){
+				console.log($('.summary .variable-item.button-variable-item-' + sizeValue ));
 				$('.summary .variable-item.button-variable-item-' + sizeValue ).trigger('click');
 				$('.summary .reset_variations').hide();
 			}, 300);
