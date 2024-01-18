@@ -69,7 +69,7 @@
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
 		});
 
-		if ( $('body').hasClass('woocommerce-shop') ) {
+		if ( $('body').hasClass('archive') ) {
 			$('.button-variable-item').on('click', function(e) {
 				e.preventDefault();
 				var sizeValue = $(this).attr('data-value'),
