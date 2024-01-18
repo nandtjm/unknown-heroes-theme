@@ -29,10 +29,11 @@
 
 		if (searchParams.has('size')) {
 			let sizeValue = searchParams.get('size');
-			$('.summary .variable-item.button-variable-item-' + sizeValue ).trigger('click');
-		}
-
-		if ( $('.summary .variable-item.selected').length === 0 ) {
+			setTimeout(function(){
+				$('.summary .variable-item.button-variable-item-' + sizeValue ).trigger('click');
+				$('.summary .reset_variations').hide();
+			}, 300);
+		} else if ( $('.summary .variable-item.selected').length === 0 ) {
 			setTimeout(function(){
 				$('.summary .variable-item:not(.no-stock):first').trigger('click');
 				
