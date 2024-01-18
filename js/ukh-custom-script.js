@@ -25,6 +25,13 @@
 			}
 		});
 
+		let searchParams = new URLSearchParams(window.location.search);
+
+		if (searchParams.has('size')) {
+			let sizeValue = searchParams.get('size');
+			$('.summary .variable-item.button-variable-item-' + sizeValue ).trigget('click');
+		}
+
 		if ( $('.summary .variable-item.selected').length === 0 ) {
 			setTimeout(function(){
 				$('.summary .variable-item:not(.no-stock):first').trigger('click');
@@ -45,22 +52,18 @@
 		}
 
 		$('#two-cols-view').on('click', function() {
-			console.log('two col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr)' );
 		});
 
 		$('#four-cols-view').on('click', function() {
-			console.log('four col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(4,1fr)' );
 		});
 
 		$('#two-cols-view-mobile').on('click', function() {
-			console.log('two col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr)' );
 		});
 
 		$('#one-col-grid').on('click', function() {
-			console.log('one col clicked');
 			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
 		});
 
