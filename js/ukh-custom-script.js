@@ -77,7 +77,9 @@
 		if ( $('body').hasClass('archive') || $('body .related') ) {
 			$('.button-variable-item:not(.no-stock)').on('click', function(e) {
 				e.preventDefault();
-				console.log($(this));
+				if ( $('.button-variable-item:not(.no-stock)') ) {
+					return;
+				}
 				var sizeValue = $(this).attr('data-value'),
 					productUrl = $(this).closest('.product').find('.woocommerce-LoopProduct-link').attr('href'),
 					redirectProductUrl = productUrl + '?size=' + sizeValue;
