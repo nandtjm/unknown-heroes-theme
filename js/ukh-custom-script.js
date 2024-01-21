@@ -31,7 +31,8 @@
 			let sizeValue = searchParams.get('size');
 			setTimeout(function(){
 				console.log($('.summary .variable-item.button-variable-item-' + sizeValue ));
-				$('.summary .variable-item.button-variable-item-' + sizeValue ).trigger('click');
+				$('.summary .variable-item').removeClass('selected');
+				$('.summary .variable-item:not(.no-stock).button-variable-item-' + sizeValue ).addClass('selected');
 				$('.summary .reset_variations').hide();
 			}, 300);
 		} else if ( $('.summary .variable-item.selected').length === 0 ) {
@@ -72,6 +73,7 @@
 		if ( $('body').hasClass('archive') || $('body .related') ) {
 			$('.button-variable-item:not(.no-stock)').on('click', function(e) {
 				e.preventDefault();
+				console.log($(this));
 				var sizeValue = $(this).attr('data-value'),
 					productUrl = $(this).closest('.product').find('.woocommerce-LoopProduct-link').attr('href'),
 					redirectProductUrl = productUrl + '?size=' + sizeValue;
