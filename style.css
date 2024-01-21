@@ -495,7 +495,7 @@ a {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) {/*
     .elementor-element.elementor-products-grid.elementor-products-columns-mobile-1 ul.products {
         grid-template-columns: repeat(1, 1fr)
     }
@@ -543,6 +543,7 @@ a {
     .elementor-element.elementor-products-grid.elementor-products-columns-mobile-12 ul.products {
         grid-template-columns: repeat(12, 1fr)
     }
+    */
 }
 
 /* End Elementor Product 2 cols issue on mobile */
