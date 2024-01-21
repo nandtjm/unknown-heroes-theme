@@ -77,7 +77,7 @@
 		if ( $('body').hasClass('archive') || $('body .related') ) {
 			$('.button-variable-item:not(.no-stock)').on('click', function(e) {
 				e.preventDefault();
-				if ( $('.button-variable-item:not(.no-stock)') ) {
+				if ( $(this).hasClass('no-stock') ) {
 					return;
 				}
 				var sizeValue = $(this).attr('data-value'),
