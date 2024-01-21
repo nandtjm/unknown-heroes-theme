@@ -248,6 +248,10 @@ a {
 
 /* end woocommerce-cart */
 
+#home-carousel .swiper-slide-active {
+    transform: scale(1.3);
+}
+
 /* Woocommerce MyAccount  */
     .woocommerce-MyAccount-navigation > ul {
         list-style: none !important;
