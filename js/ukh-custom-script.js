@@ -32,7 +32,11 @@
 			setTimeout(function(){
 				console.log($('.summary .variable-item.button-variable-item-' + sizeValue ));
 				$('.summary .variable-item').removeClass('selected');
-				$('.summary .variable-item:not(.no-stock).button-variable-item-' + sizeValue ).addClass('selected');
+				if ( $('.summary .variable-item.button-variable-item-' + sizeValue ).hasClass('no-stock') ) {
+					$('.summary .variable-item:not(.no-stock):first').trigger('click');
+				} else {
+					$('.summary .variable-item.button-variable-item-' + sizeValue ).addClass('selected');
+				}
 				$('.summary .reset_variations').hide();
 			}, 300);
 		} else if ( $('.summary .variable-item.selected').length === 0 ) {
