@@ -616,6 +616,13 @@ a {
     .elementor-products-grid ul.products.elementor-grid li.product {
         float: left !important;
     }
+
+    .product-subtitle {
+        gap: 5px !important;
+        line-height: 1rem !important;
+        font-size: 0.8rem !important;
+        justify-content: start !important;
+    }
 }
 
 
