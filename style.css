@@ -617,6 +617,10 @@ a {
         float: left !important;
     }
 
+    .elementor-products-grid ul.products.elementor-grid li.product:nth-child(even) {
+        margin-left: 10px;
+    }
+
     .product-subtitle {
         gap: 5px !important;
         line-height: 1rem !important;
