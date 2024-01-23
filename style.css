@@ -544,9 +544,7 @@ a {
     .elementor-element.elementor-products-grid.elementor-products-columns-mobile-12 ul.products {
         grid-template-columns: repeat(12, 1fr)
     }
-    */
 }
-*/
 
 /* End Elementor Product 2 cols issue on mobile */
 
@@ -582,6 +580,14 @@ a {
     #header-right-icons .elementor-shortcode .search svg {
         width: 15px !important;
         height: 15px !important;
+    }
+
+    .elementor-products-grid ul.products.elementor-grid {
+        display: block !important;
+    }
+
+    .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+        display: inline-block !important;
     }
 }
 
