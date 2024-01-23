@@ -293,6 +293,7 @@ a {
 }
 
 /* Elementor Product 2 cols issue on mobile */
+/*
 @media (min-width: 1025px) {
     .elementor-element.elementor-products-grid ul.products.columns-2 {
         grid-template-columns: repeat(2, 1fr)
@@ -545,6 +546,7 @@ a {
     }
     */
 }
+*/
 
 /* End Elementor Product 2 cols issue on mobile */
 
