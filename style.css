@@ -593,6 +593,21 @@ a {
     .woocommerce .elementor-element.elementor-products-grid ul.products li.product, .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product, .woocommerce div.product .elementor-element.elementor-products-grid .upsells.products ul.products li.product {
         width: 48% !important;
     }
+
+
+    .woocommerce-shop.woo-variation-swatches .variable-items-wrapper {
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+    }
+
+    .woo-variation-swatches .wvs-archive-variations-wrapper .variable-items-wrapper .variable-item:not(.radio-variable-item) {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .woo-variation-swatches .variable-items-wrapper {
+        justify-content: 5px !important;
+    }
 }
 
 
