@@ -606,7 +606,11 @@ a {
     }
 
     .woo-variation-swatches .variable-items-wrapper {
-        justify-content: 5px !important;
+        justify-content: start !important;
+    }
+
+    .woocommerce ul.products li.product .woocommerce-loop-product__title {
+        font-size: 0.8em !important;
     }
 }
 
