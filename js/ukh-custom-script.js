@@ -5,14 +5,24 @@
 		$('.search a').on('click', function(e) {
 			$('.search').toggleClass('open');
 		});
-	
-		var is_admin = $('body').hasClass('admin-bar') ? true : false;
-		var marginTop = 0;
-		marginTop += $('#main-header').outerHeight();
-		if ( is_admin && $(window).width() < 768 ) {
-			// Already added via CSS
-			//marginTop += $('#wpadminbar').outerHeight();
+		
+		function updateSizeInfo() {
+			var is_admin = $('body').hasClass('admin-bar') ? true : false;
+			var marginTop = 0;
+			marginTop += $('#main-header').outerHeight();
+			if ( is_admin && $(window).width() < 768 ) {
+				// Already added via CSS
+				//marginTop += $('#wpadminbar').outerHeight();
+			} else if ($(window).width() < 480) {
+				marginTop = 0;
+			}
 		}
+
+		updateSizeInfo();
+
+		$(window).resize(function() {
+      		updateSizeInfo();
+    	});
 		
 		$('#main-content').css('margin-top', marginTop + 'px');
 		
