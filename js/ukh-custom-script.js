@@ -16,6 +16,7 @@
 			} else if ($(window).width() < 480) {
 				marginTop = 0;
 			}
+			$('#main-content').css('margin-top', marginTop + 'px');
 		}
 
 		updateSizeInfo();
@@ -23,8 +24,6 @@
 		$(window).resize(function() {
       		updateSizeInfo();
     	});
-		
-		$('#main-content').css('margin-top', marginTop + 'px');
 		
 		$( document.body ).on( 'woocommerce_variation_has_changed', function(e) {
 			if ( $('.summary .single_add_to_cart_button.disabled').length > 0 &&
