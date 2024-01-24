@@ -548,6 +548,10 @@ a {
 
 /* End Elementor Product 2 cols issue on mobile */
 
+.archive .wc-gzd-additional-info-loop {
+    display: none !important;
+}
+
 
 @media (min-width: 767px) {
     .admin-bar #main-header {
