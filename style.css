@@ -618,6 +618,10 @@ a {
         font-size: 0.8em !important;
     }
 
+    .woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item) {
+        box-shadow: none !important;
+    }
+
     /*
     .elementor-products-grid ul.products.elementor-grid li.product {
         float: left !important;
