@@ -627,6 +627,19 @@ a {
         font-size: 0.8rem !important;
         justify-content: start !important;
     }
+
+    .elementor-products-grid.one-col-product ul.products.elementor-grid {
+        display: grid !important;
+
+    }
+
+    .woocommerce .elementor-element.elementor-products-grid.one-col-product ul.products li.product {
+        width: auto !important;
+    }
+
+    .elementor-products-grid.one-col-grid ul.products.elementor-grid li.product {
+        float: none !important;
+    }
 }
 
 
