@@ -75,11 +75,11 @@
 		});
 
 		$('#one-col-grid-mobile').on('click', function() {
-			$('.elementor-products-grid').addClass('one-col-product');
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(1,1fr)' );
 		});
 
 		$('#two-cols-grid-mobile').on('click', function() {
-			$('.elementor-products-grid').removeClass('one-col-product');
+			$('.elementor-grid-4 .elementor-grid').css('grid-template-columns', 'repeat(2,1fr)' );
 		});
 
 		if ( $('body').hasClass('archive') || $('body .related') ) {
