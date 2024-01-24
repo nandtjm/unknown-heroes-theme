@@ -599,7 +599,7 @@ a {
     }
 
 
-    .woocommerce-shop.woo-variation-swatches .variable-items-wrapper {
+    .archive.woo-variation-swatches .variable-items-wrapper {
         flex-wrap: wrap !important;
         gap: 5px !important;
     }
