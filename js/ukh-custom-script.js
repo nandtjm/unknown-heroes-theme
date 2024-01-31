@@ -35,7 +35,7 @@
 		});
 
 		let searchParams = new URLSearchParams(window.location.search);
-
+		console.log(searchParams);
 		if (searchParams.has('size')) {
 			let sizeValue = searchParams.get('size');
 			setTimeout(function(){
@@ -92,7 +92,7 @@
 		});
 
 		if ( $('body').hasClass('archive') || $('body .related') ) {
-			$('.button-variable-item:not(.no-stock)').on('click', function(e) {
+			$('.product:not(.summary) .button-variable-item:not(.no-stock)').on('click', function(e) {
 				e.preventDefault();
 				if ( $(this).hasClass('no-stock') ) {
 					return;
