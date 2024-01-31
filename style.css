@@ -169,7 +169,8 @@ a {
 .tax-product_cat .add_to_cart_button,
 .tax-product_cat .product_type_variable.wvs-add-to-cart-button,
 .tax-pa_brand .add_to_cart_button,
-.tax-pa_brand .product_type_variable.wvs-add-to-cart-button {
+.tax-pa_brand .product_type_variable.wvs-add-to-cart-button,
+.search-results .product_type_variable.wvs-add-to-cart-button {
     display: none !important;
 }
 
@@ -548,7 +549,8 @@ a {
 
 /* End Elementor Product 2 cols issue on mobile */
 
-.archive .wc-gzd-additional-info-loop {
+.archive .wc-gzd-additional-info-loop,
+.search-results .wc-gzd-additional-info-loop {
     display: none !important;
 }
 
@@ -616,6 +618,10 @@ a {
 
     .woocommerce ul.products li.product .woocommerce-loop-product__title {
         font-size: 0.8em !important;
+    }
+
+    .search-results .wvs-archive-variations-wrapper {
+        display: none !important;
     }
 
     /*.woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item) {
