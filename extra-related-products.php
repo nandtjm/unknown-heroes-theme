@@ -30,11 +30,6 @@ foreach ($categories as $category) {
 }
 
 $product_results = array();
-print_r( $gender_value );
-echo '<br>';
-print_r( $primary_term );
-echo '<br>Sub category <br>';
-print_r( $sub_categories );
 
 function get_products_from_category($category_id, $gender_value, $limit = 8) {
    $args = array(
