@@ -102,7 +102,8 @@ a {
 
 .woocommerce-shop.woo-variation-swatches .variable-items-wrapper,
 .tax-product_cat.woo-variation-swatches .variable-items-wrapper,
-.tax-pa_brand.woo-variation-swatches .variable-items-wrapper {
+.tax-pa_brand.woo-variation-swatches .variable-items-wrapper,
+.search-results.woo-variation-swatches .variable-items-wrapper {
     flex-wrap: nowrap;
     gap: 10px;
 }
@@ -119,14 +120,17 @@ a {
 .tax-product_cat .woocommerce-loop-product__title,
 .tax-product_cat .price,
 .tax-pa_brand .price,
-.tax-pa_brand .woocommerce-loop-product__title {
+.tax-pa_brand .woocommerce-loop-product__title,
+.search-results .woocommerce-loop-product__title,
+.search-results .price {
     padding-left: 15px;
     padding-right: 15px;
 }
 
 .woocommerce-shop .products,
 .tax-product_cat .products,
-.tax-pa_brand .products {
+.tax-pa_brand .products
+.search-results .products {
     margin-bottom: 30px !important;
 }
 
@@ -177,14 +181,16 @@ a {
 #ukh-related .price,
 .woocommerce-shop .price,
 .tax-product_cat .price,
-.tax-pa_brand .price {
+.tax-pa_brand .price,
+.search-results .price {
     text-align: right !important;
 }
 
 #ukh-related .product-subtitle,
 .woocommerce-shop .product-subtitle,
 .tax-product_cat .product-subtitle,
-.tax-pa_brand .product-subtitle {
+.tax-pa_brand .product-subtitle,
+.search-results .product-subtitle {
     justify-content: start;
     font-size: 1rem;
     line-height: 1.2rem;
@@ -548,7 +554,9 @@ a {
 }
 
 /* End Elementor Product 2 cols issue on mobile */
-
+.stock.out-of-stock {
+    display: none !important;
+}
 .archive .wc-gzd-additional-info-loop,
 .search-results .wc-gzd-additional-info-loop {
     display: none !important;
