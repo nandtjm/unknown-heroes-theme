@@ -392,8 +392,8 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
     // Check if the taxonomy is 'pa_size'
     if ( in_array( 'pa_size', $taxonomies ) ) {
         // Define the desired order of size attributes
-        $desired_order = array( 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
-        
+        $desired_order = array( 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
+        var_dump($terms);
         // Sort the terms based on the desired order
         usort( $terms, function ( $a, $b ) use ( $desired_order ) {
             $a_index = array_search( $a, $desired_order );
