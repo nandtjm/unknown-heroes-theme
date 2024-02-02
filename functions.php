@@ -399,7 +399,7 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
             foreach ( $terms as $term ) {
             	if ( isset( $term->taxonomy ) && 'pa_size' !== $term->taxonomy ) continue;
             	echo '<pre>'; print_r($term); echo '</pre>=======<br>';
-                if ( $term->name === $size ) {
+                if ( isset( $term->name ) && $term->name === $size ) {
                     $sorted_terms[] = $term;
                     break;
                 }
