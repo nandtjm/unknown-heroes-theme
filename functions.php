@@ -373,3 +373,46 @@ if( ! function_exists( 'yith_wcan_content_selector' ) ){
     }
     add_filter( 'yith_wcan_content_selector', 'yith_wcan_content_selector' );
 }
+
+function ukh_order_size_filter( $template_path, $template, $atts, $echo ) {
+
+	$item_name = $atts['item_name'];
+	if ( 'filter[4646][1]' == $item_name ) {
+
+	}
+
+	return $template_path;
+}
+
+//add_filter( 'yith_wcan_template_path', 'ukh_order_size_filter', 10, 4 );
+
+
+// Custom sorting function for WooCommerce product attributes
+function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
+    // Check if the taxonomy is 'pa_size'
+    if ( in_array( 'pa_size', $taxonomies ) ) {
+        // Define the desired order of size attributes
+        $desired_order = array( 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
+        
+        // Sort the terms based on the desired order
+        usort( $terms, function ( $a, $b ) use ( $desired_order ) {
+            $a_index = array_search( $a->name, $desired_order );
+            $b_index = array_search( $b->name, $desired_order );
+            
+            // If both terms are found in the desired order array, compare their positions
+            if ( $a_index !== false && $b_index !== false ) {
+                return $a_index - $b_index;
+            } elseif ( $a_index !== false ) { // If only $a is found in the desired order array, it should come first
+                return -1;
+            } elseif ( $b_index !== false ) { // If only $b is found in the desired order array, it should come first
+                return 1;
+            } else { // If neither $a nor $b is found in the desired order array, maintain their original order
+                return 0;
+            }
+        } );
+    }
+    
+    return $terms;
+}
+add_filter( 'get_terms', 'custom_product_attribute_sorting', 10, 3 );
+
