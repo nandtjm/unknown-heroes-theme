@@ -112,7 +112,7 @@ function ukh_render_paypal_button_output($atts, $content = null) {
 	//$payment_method     = isset( $available_gateways[ 'ppcp-gateway' ] ) ? $available_gateways[ 'ppcp-gateway' ] : false;
 
 	foreach ( $gateway_ids as $gateway_id ) {
-		if ( isset( $available_gateways[ $gateway_id ] ) {
+		if ( isset( $available_gateways[ $gateway_id ] ) ) {
 			// The wrapper is needed for the loading spinner,
 			// otherwise jQuery block() prevents buttons rendering.
 			echo '<div class="ppc-button-wrapper">';
