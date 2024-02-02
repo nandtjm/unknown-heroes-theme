@@ -109,7 +109,7 @@ function ukh_render_paypal_button_output($atts, $content = null) {
     $module_path = WP_PLUGIN_DIR . '/woocommerce-paypal-payments/modules/ppcp-button/module.php';
     
 	if ( file_exists( $module_path ) ) {
-		var_dump($module_path);
+		var_dump(include $module_path);
 	    include $module_path;
 	}
 }
