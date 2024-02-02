@@ -118,7 +118,7 @@
 
 		});
 		
-		var sizesOrder = ['xs', 's', 'm', 'l', 'xl', 'XXL', '3xl'];
+		var sizesOrder = ['xs', 's', 'm', 'l', 'xl', 'xxl', '3xl'];
     
 	    var $checkboxes = $('#filter_4646_1 .filter-item.checkbox.level-0.no-color');
 	    
