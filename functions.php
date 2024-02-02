@@ -407,7 +407,7 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
         
         // Append any remaining terms not in the desired order
         foreach ( $terms as $term ) {
-            if ( !in_array( $term, $sorted_terms ) ) {
+            if ( ! in_array( $term, $sorted_terms ) ) {
                 $sorted_terms[] = $term;
             }
         }
