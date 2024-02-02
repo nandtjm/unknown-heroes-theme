@@ -108,8 +108,8 @@ function add_product_brand_conditions( $conditions_manager ) {
 function ukh_render_paypal_button_output($atts, $content = null) {
     $module_path = WP_PLUGIN_DIR . '/woocommerce-paypal-payments/modules/ppcp-button/module.php';
     
-	if ( ! wp_doing_ajax() ) {
-		do_action( 'woocommerce_review_order_after_payment' );
-	}
+	
+	do_action( 'woocommerce_review_order_before_submit' );
+	
 }
 add_shortcode('ukh_render_paypal_button', 'ukh_render_paypal_button_output');
