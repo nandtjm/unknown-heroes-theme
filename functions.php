@@ -105,8 +105,9 @@ function add_product_brand_conditions( $conditions_manager ) {
 }
 //add_action( 'elementor/theme/register_conditions', 'add_product_brand_conditions' );
 
-
-
-
-
-
+function ukh_render_paypal_button_output($atts, $content = null) {
+    ob_start();
+    include_once get_stylesheet_directory() . '/render-paypal-button.php';
+    return ob_get_clean();
+}
+add_shortcode('ukh_render_paypal_button', 'ukh_render_paypal_button_output');
