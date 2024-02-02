@@ -144,3 +144,232 @@ function ukh_render_paypal_button_output($atts, $content = null) {
 	
 }
 add_shortcode('ukh_render_paypal_button', 'ukh_render_paypal_button_output');
+
+
+function ukh_the_password_form( $output, $post ) {
+
+    $label  = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
+
+    $heading =  sprintf( __( 'Dieser Artikel kann nur von Mitarbeitern des SVB mittels gesondert zirkuliertem Passwort bestellt werden. Bestellungen sind bis einschließlich %s, möglich. Sodann werden die Shirts produziert und %s über den Sparkassenverbands Bayern an die Bestellenden verteilt. Alternativ können Sie sich diesen Artikel und/oder weitere Artikel aus unserem Shop auch über DHL zusenden lassen. Eine entsprechende Option finden Sie im Warenkorb.' ), '<strong>22. ' . __( 'Dezember' ) . ' 2023, 24:00 Uhr</strong>', '<strong>' . __( 'Ende Januar' ) . ' 2024</strong>' );
+    $output = '<script>
+        function calculateSHA1(inputString) {
+            return new Promise(async (resolve) => {
+                // Convert string to ArrayBuffer
+                const encoder = new TextEncoder();
+                const data = encoder.encode(inputString);
+
+                // Calculate SHA-1 hash
+                const buffer = await crypto.subtle.digest("SHA-1", data);
+
+                // Convert ArrayBuffer to hexadecimal string
+                const hashArray = Array.from(new Uint8Array(buffer));
+                const sha1Hash = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+
+                resolve(sha1Hash);
+            });
+        }
+
+        function validateForm() {
+            var pass = jQuery("input[name=post_password]").val();
+
+            calculateSHA1(pass).then((hashPass) => {
+                var phpHash = "' . sha1($post->post_password) . '";
+
+                if (hashPass !== phpHash) {
+                    alert("Incorrect Password!");
+                    return false;
+                }
+            });
+        }
+    </script>';
+
+    $output .= '<style>
+        @media (max-width: 496px) {
+            #pass-submit {
+                margin: 15px 0;
+                margin-left: 75px;
+            }
+        }
+    </style>';
+
+    $output .= '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post" onsubmit="return validateForm()">';
+    $output .= '<p style="color: #050505FC; font-size: 18px; font-weight: 400;">' . $heading . '</p>';
+     $output .= '<br>';
+    $output .= '<p><label for="' . $label . '">' . __( 'Password:' ) . ' <input name="post_password" id="' . $label . '" type="password" spellcheck="false" size="20" /></label> <input id="pass-submit" type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form' ) . '" style="cursor: pointer;color:#ffffff;background-color:#b39740;border-radius:5px;padding:9px 17px;" /></p></form>';
+
+    return $output;
+    
+}
+
+add_filter( 'the_password_form', 'ukh_the_password_form', 10, 2 );
+
+function ukh_title_format($prepend, $post) {
+    
+    return __('%s');
+}
+
+add_filter( 'protected_title_format', 'ukh_title_format', 10, 2 );
+
+function has_password_protected_product() {
+   
+    if ( isset( WC()->cart ) ) {
+        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+            
+            $product_id = $cart_item['product_id'];
+            $post_visibility = get_post_field('post_password', $product_id) ? 'password-protected' : get_post_status($product_id);
+            
+            if ( 'password-protected' === $post_visibility ) {
+               return true;
+
+            }
+        }
+    }
+
+    return false;
+}
+
+
+function change_shipping_class_based_on_password_protected( $available_shipping_methods, $package ) {
+    
+    if ( ! has_password_protected_product() ) {
+        
+        foreach ( $available_shipping_methods as $shipping_method_key => $shipping_method ) {
+            
+            if ( 6 === $shipping_method->get_instance_id() ) {
+                unset($available_shipping_methods[ $shipping_method_key ]);
+            }
+        }
+        
+    }
+    
+    return $available_shipping_methods;
+}
+//add_filter( 'woocommerce_package_rates', 'change_shipping_class_based_on_password_protected', 10, 2 );
+
+
+function change_cart_item_name( $product_name ) {
+
+    $pattern = '/\s+(?:women|Women|Men|men)\s*-\s*\S+/i';
+    $product_name = preg_replace( $pattern, '', $product_name );
+    return $product_name;
+}
+
+add_filter( 'woocommerce_cart_item_name', 'change_cart_item_name' );
+
+add_action( 'template_redirect', 'ukh_track_product_view', 9999 );
+ 
+function ukh_track_product_view() {
+   if ( ! is_singular( 'product' ) ) return;
+   global $post;
+   if ( empty( $_COOKIE['ukh_recently_viewed'] ) ) {
+      $viewed_products = array();
+   } else {
+      $viewed_products = wp_parse_id_list( (array) explode( '|', wp_unslash( $_COOKIE['ukh_recently_viewed'] ) ) );
+   }
+   $keys = array_flip( $viewed_products );
+   if ( isset( $keys[ $post->ID ] ) ) {
+      unset( $viewed_products[ $keys[ $post->ID ] ] );
+   }
+   $viewed_products[] = $post->ID;
+   if ( count( $viewed_products ) > 8 ) {
+      array_shift( $viewed_products );
+   }
+   wc_setcookie( 'ukh_recently_viewed', implode( '|', $viewed_products ) );
+}
+ 
+add_shortcode( 'ukh_recently_viewed_products', 'ukh_recently_viewed_products_shortcode' );
+  
+function ukh_recently_viewed_products_shortcode() {
+   $viewed_products = ! empty( $_COOKIE['ukh_recently_viewed'] ) ? (array) explode( '|', wp_unslash( $_COOKIE['ukh_recently_viewed'] ) ) : array();
+   if ( is_singular() ) {
+    global $post;
+    $keys = array_flip( $viewed_products );
+    if ( isset( $keys[ $post->ID ] ) ) {
+        unset( $viewed_products[ $keys[ $post->ID ] ] );
+    }
+   }
+   $viewed_products = array_reverse( array_filter( array_map( 'absint', $viewed_products ) ) );
+   if ( empty( $viewed_products ) ) return;
+   $title = '<h2 class="uppercase inline-block pb-1 mt-12 border-b border-black text-2xl font-bold">KÜRZLICH ANGESEHENE ARTIKEL</h2>';
+   $product_ids = implode( ",", $viewed_products );
+   return $title . do_shortcode('[products ids="'.$product_ids.'" paginate="false" class="ukh-recently-viewed"]');
+}
+
+function recently_viewed_after_single_product() {
+    echo do_shortcode('[ukh_recently_viewed_products]');
+}
+
+add_action( 'woocommerce_after_single_product', 'recently_viewed_after_single_product', 20 );
+
+function ukh_shipping_packages( $packages ) {
+
+    foreach ($packages as $package_key => $package) {
+        $rates = $package['rates'];
+        foreach ($rates as $method_key => $rate) {
+           if (  has_password_protected_product() && 'flat_rate:6' !== $method_key ) {
+                    //$rates[$method_key]['flat_rate:6'] = $new_method;
+            } elseif ( ! has_password_protected_product() && 'flat_rate:6' === $method_key ) {
+                    unset($rates[$method_key]);
+            }
+
+            if ( 'free_shipping:2' === $method_key ) {
+                unset( $rates['flat_rate:1'] );
+            }
+        }
+        $package['rates'] = $rates;
+        $packages[ $package_key ] = $package;
+    }
+
+    return $packages;
+}
+
+add_filter( 'woocommerce_shipping_packages', 'ukh_shipping_packages' );
+
+function uhk_display_item_meta( $html, $item, $args ) {
+
+    $strings = array();
+    $html = '';
+    $args    = wp_parse_args(
+        $args,
+        array(
+            'before'       => '<ul class="wc-item-meta"><li>',
+            'after'        => '</li></ul>',
+            'separator'    => '</li><li>',
+            'echo'         => true,
+            'autop'        => false,
+            'label_before' => '<strong class="wc-item-meta-label">',
+            'label_after'  => ',</strong> ',
+        )
+    );
+
+    $args['label_before'] = '<span class="wc-item-meta-label">';
+    $args['label_after'] = '</span>';
+
+    $product_id = $item->get_product_id();
+    $product = wc_get_product($product_id);
+    $gender = $product->get_attribute('pa_geschlecht');
+
+    foreach ( $item->get_all_formatted_meta_data() as $meta_id => $meta ) {
+        if ( 'Size' === $meta->display_key ) {
+            $value     = $args['autop'] ? wp_kses_post( $meta->display_value ) : wp_kses_post( make_clickable( trim( $meta->display_value ) ) );
+            $strings[] = $args['label_before'] . $gender . ', ' . $args['label_after'] . $value;
+        }
+    }
+
+    if ( $strings ) {
+        $html = $args['before'] . implode( $args['separator'], $strings ) . $args['after'];
+    }
+
+    return $html;
+}
+
+add_filter( 'woocommerce_display_item_meta', 'uhk_display_item_meta', 10, 3 );
+
+
+if( ! function_exists( 'yith_wcan_content_selector' ) ){
+    function yith_wcan_content_selector( $selector ){
+        $selector = '#main-content';
+        return $selector;
+    }
+    add_filter( 'yith_wcan_content_selector', 'yith_wcan_content_selector' );
+}
