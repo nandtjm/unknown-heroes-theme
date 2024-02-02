@@ -106,14 +106,40 @@ function add_product_brand_conditions( $conditions_manager ) {
 //add_action( 'elementor/theme/register_conditions', 'add_product_brand_conditions' );
 
 function ukh_render_paypal_button_output($atts, $content = null) {
-    $module_path = WP_PLUGIN_DIR . '/woocommerce-paypal-payments/modules/ppcp-button/module.php';
     
-	
+	$gateway_ids = [ 'ppcp-gateway', 'ppcp-card-button-gateway' ];
 	$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-	$payment_method     = isset( $available_gateways[ 'ppcp-gateway' ] ) ? $available_gateways[ 'ppcp-gateway' ] : false;
+	//$payment_method     = isset( $available_gateways[ 'ppcp-gateway' ] ) ? $available_gateways[ 'ppcp-gateway' ] : false;
 
-	if ( $payment_method ) {
-		wc_get_template( 'checkout/payment-method.php', array( 'gateway' => $payment_method ) );
+	foreach ( $gateway_ids as $gateway_id ) {
+		if ( isset( $available_gateways[ $gateway_id ] ) {
+			// The wrapper is needed for the loading spinner,
+			// otherwise jQuery block() prevents buttons rendering.
+			echo '<div class="ppc-button-wrapper">';
+
+			$hook_gateway_id = str_replace( '-', '_', $gateway_id );
+			/**
+			 * A hook executed after rendering of the opening tag for the PCP wrapper (before the inner wrapper for the buttons).
+			 *
+			 * For the PayPal gateway the hook name is ppcp_start_button_wrapper_ppcp_gateway.
+			 */
+			do_action( 'ppcp_start_button_wrapper_' . $hook_gateway_id );
+
+			echo '<div id="ppc-button-' . esc_attr( $gateway_id ) . '"></div>';
+
+			/**
+			 * A hook executed before rendering of the closing tag for the PCP wrapper (before the inner wrapper for the buttons).
+			 *
+			 * For the PayPal gateway the hook name is ppcp_end_button_wrapper_ppcp_gateway.
+			 */
+			do_action( 'ppcp_end_button_wrapper_' . $hook_gateway_id );
+
+			if ( 'ppcp-gateway' === $gateway_id ) { 
+				do_action( 'woocommerce_paypal_payments_checkout_button_render' );
+			}
+			
+			echo '</div>';
+		}
 	}
 	
 }
