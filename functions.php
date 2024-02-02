@@ -368,7 +368,7 @@ add_filter( 'woocommerce_display_item_meta', 'uhk_display_item_meta', 10, 3 );
 
 if( ! function_exists( 'yith_wcan_content_selector' ) ){
     function yith_wcan_content_selector( $selector ){
-        $selector = '#main-content';
+        $selector = '.elementor-location-archive.product';
         return $selector;
     }
     add_filter( 'yith_wcan_content_selector', 'yith_wcan_content_selector' );
