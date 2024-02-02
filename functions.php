@@ -387,34 +387,3 @@ function ukh_order_size_filter( $template_path, $template, $atts, $echo ) {
 //add_filter( 'yith_wcan_template_path', 'ukh_order_size_filter', 10, 4 );
 
 
-// Custom sorting function for WooCommerce product attributes
-function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
-    // Check if the taxonomy is 'pa_size'
-    if ( in_array( 'pa_size', $taxonomies ) ) {
-       	echo '<pre>'; print_r($taxonomies); echo '</pre>=======<br>';
-        $desired_order = array( 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
-        $sorted_terms = array();
-        foreach ( $desired_order as $size ) {
-            foreach ( $terms as $term ) {
-            	if ( isset( $term->taxonomy ) && 'pa_size' !== $term->taxonomy ) continue;
-                if ( isset( $term->name ) && $term->name === $size ) {
-                    $sorted_terms[] = $term;
-                    break;
-                }
-            }
-        }
-        
-        // Append any remaining terms not in the desired order
-        foreach ( $terms as $term ) {
-            if ( !in_array( $term, $sorted_terms ) ) {
-                $sorted_terms[] = $term;
-            }
-        }
-        
-        return $sorted_terms;
-    }
-    
-    return $terms;
-}
-add_filter( 'get_terms', 'custom_product_attribute_sorting', 10, 3 );
-
