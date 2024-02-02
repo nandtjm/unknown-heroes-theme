@@ -109,7 +109,12 @@ function ukh_render_paypal_button_output($atts, $content = null) {
     $module_path = WP_PLUGIN_DIR . '/woocommerce-paypal-payments/modules/ppcp-button/module.php';
     
 	
-	do_action( 'woocommerce_review_order_before_submit' );
+	$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+	$payment_method     = isset( $available_gateways[ 'ppcp-gateway' ] ) ? $available_gateways[ 'ppcp-gateway' ] : false;
+
+	if ( $payment_method ) {
+		wc_get_template( 'checkout/payment-method.php', array( 'gateway' => $payment_method ) );
+	}
 	
 }
 add_shortcode('ukh_render_paypal_button', 'ukh_render_paypal_button_output');
