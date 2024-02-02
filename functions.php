@@ -393,26 +393,29 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
     if ( in_array( 'pa_size', $taxonomies ) ) {
         // Define the desired order of size attributes
         $desired_order = array( 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
-        
         // Sort the terms based on the desired order
-        usort( $terms, function ( $a, $b ) use ( $desired_order ) {
-        	echo '<pre>'; print_r($a); echo '</pre>';
-            $a_index = array_search( $a, $desired_order );
-            $b_index = array_search( $b, $desired_order );
-
-            // If both terms are found in the desired order array, compare their positions
-            if ( $a_index !== false && $b_index !== false ) {
-                return $a_index - $b_index;
-            } elseif ( $a_index !== false ) { // If only $a is found in the desired order array, it should come first
-                return -1;
-            } elseif ( $b_index !== false ) { // If only $b is found in the desired order array, it should come first
-                return 1;
-            } else { // If neither $a nor $b is found in the desired order array, maintain their original order
-                return 0;
+        $sorted_terms = array();
+        foreach ( $desired_order as $size ) {
+            foreach ( $terms as $term ) {
+            	echo '<pre>'; print_r($term); echo '</pre>=======<br>';
+            	if ( 'pa_size' !== $term->taxonomy ) continue;
+                if ( $term->name === $size ) {
+                    $sorted_terms[] = $term;
+                    break;
+                }
             }
-        } );
+        }
+        
+        // Append any remaining terms not in the desired order
+        foreach ( $terms as $term ) {
+            if ( !in_array( $term, $sorted_terms ) ) {
+                $sorted_terms[] = $term;
+            }
+        }
+        
+        return $sorted_terms;
     }
-
+    
     return $terms;
 }
 add_filter( 'get_terms', 'custom_product_attribute_sorting', 10, 3 );
