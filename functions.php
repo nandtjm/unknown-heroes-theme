@@ -110,13 +110,13 @@ function ukh_render_paypal_button_output($atts, $content = null) {
 	$gateway_ids = [ 'ppcp-gateway', 'ppcp-card-button-gateway' ];
 	$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 	//$payment_method     = isset( $available_gateways[ 'ppcp-gateway' ] ) ? $available_gateways[ 'ppcp-gateway' ] : false;
-
+	rand();
 	foreach ( $gateway_ids as $gateway_id ) {
 		if ( isset( $available_gateways[ $gateway_id ] ) ) {
 			// The wrapper is needed for the loading spinner,
 			// otherwise jQuery block() prevents buttons rendering.
 			echo '<div class="ppc-button-wrapper">';
-
+			$rand_id = rand(10,99);
 			$hook_gateway_id = str_replace( '-', '_', $gateway_id );
 			/**
 			 * A hook executed after rendering of the opening tag for the PCP wrapper (before the inner wrapper for the buttons).
@@ -125,7 +125,7 @@ function ukh_render_paypal_button_output($atts, $content = null) {
 			 */
 			do_action( 'ppcp_start_button_wrapper_' . $hook_gateway_id );
 
-			echo '<div id="ppc-button-' . esc_attr( $gateway_id ) . '"></div>';
+			echo '<div id="ppc-button-' . esc_attr( $gateway_id ) . $rand_id . '"></div>';
 
 			/**
 			 * A hook executed before rendering of the closing tag for the PCP wrapper (before the inner wrapper for the buttons).
