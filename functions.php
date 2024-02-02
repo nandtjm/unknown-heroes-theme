@@ -111,10 +111,3 @@ function ukh_render_paypal_button_output($atts, $content = null) {
     return ob_get_clean();
 }
 add_shortcode('ukh_render_paypal_button', 'ukh_render_paypal_button_output');
-
-function ukh_test_output($atts, $content = null) {
-    ob_start();
-    echo '<p>This is Test Shortcode</p>';
-    return ob_get_clean();
-}
-add_shortcode('ukh_test', 'ukh_test_output');
