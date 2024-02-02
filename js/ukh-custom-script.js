@@ -118,6 +118,18 @@
 
 		});
 		
+		var sizesOrder = ['xs', 's', 'm', 'l', 'xl', 'XXL', '3xl'];
+    
+	    var $checkboxes = $('.filter-item.checkbox.level-0.no-color');
+	    
+	    $checkboxes.sort(function(a, b) {
+	        var sizeA = $(a).find('input[type="checkbox"]').val();
+	        var sizeB = $(b).find('input[type="checkbox"]').val();
+	        
+	        return sizesOrder.indexOf(sizeA) - sizesOrder.indexOf(sizeB);
+	    });
+	    
+	    $('.filter-items.filter-checkbox.level-0').html($checkboxes);
 
 	});
 })(jQuery);
