@@ -107,7 +107,7 @@ function add_product_brand_conditions( $conditions_manager ) {
 
 function ukh_render_paypal_button_output($atts, $content = null) {
     $module_path = WP_PLUGIN_DIR . '/woocommerce-paypal-payments/modules/ppcp-button/module.php';
-    var_dump($module_path);
+    var_dump(file_exists( $module_path ));
 	if ( file_exists( $module_path ) ) {
 	    include $module_path;
 	}
