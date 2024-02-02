@@ -391,9 +391,8 @@ function ukh_order_size_filter( $template_path, $template, $atts, $echo ) {
 function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
     // Check if the taxonomy is 'pa_size'
     if ( in_array( 'pa_size', $taxonomies ) ) {
-        // Define the desired order of size attributes
+       	echo '<pre>'; print_r($taxonomies); echo '</pre>=======<br>';
         $desired_order = array( 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL' );
-        // Sort the terms based on the desired order
         $sorted_terms = array();
         foreach ( $desired_order as $size ) {
             foreach ( $terms as $term ) {
@@ -412,7 +411,6 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
             }
         }
         
-       	echo '<pre>'; print_r($sorted_terms); echo '</pre>=======<br>';
         return $sorted_terms;
     }
     
