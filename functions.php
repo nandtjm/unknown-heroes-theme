@@ -396,8 +396,11 @@ function custom_product_attribute_sorting( $terms, $taxonomies, $args ) {
         
         // Sort the terms based on the desired order
         usort( $terms, function ( $a, $b ) use ( $desired_order ) {
-            $a_index = array_search( $a->name, $desired_order );
-            $b_index = array_search( $b->name, $desired_order );
+        	$a_name = $a->name;
+            $b_name = $b->name;
+
+            $a_index = array_search( $a_name, $desired_order );
+            $b_index = array_search( $b_name, $desired_order );
             
             // If both terms are found in the desired order array, compare their positions
             if ( $a_index !== false && $b_index !== false ) {
