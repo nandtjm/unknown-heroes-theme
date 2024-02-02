@@ -120,7 +120,7 @@
 		
 		var sizesOrder = ['xs', 's', 'm', 'l', 'xl', 'XXL', '3xl'];
     
-	    var $checkboxes = $('.filter-item.checkbox.level-0.no-color');
+	    var $checkboxes = $('#filter_4646_1 .filter-item.checkbox.level-0.no-color');
 	    
 	    $checkboxes.sort(function(a, b) {
 	        var sizeA = $(a).find('input[type="checkbox"]').val();
@@ -129,7 +129,7 @@
 	        return sizesOrder.indexOf(sizeA) - sizesOrder.indexOf(sizeB);
 	    });
 	    
-	    $('.filter-items.filter-checkbox.level-0').html($checkboxes);
+	    $('#filter_4646_1 .filter-items.filter-checkbox.level-0').html($checkboxes);
 
 	});
 })(jQuery);
