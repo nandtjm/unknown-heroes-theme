@@ -386,4 +386,11 @@ function ukh_order_size_filter( $template_path, $template, $atts, $echo ) {
 
 //add_filter( 'yith_wcan_template_path', 'ukh_order_size_filter', 10, 4 );
 
+function ukh_after_query_reload( $query, $filter ) {
+	echo '<script>
+		console.log("Before reload start");
+		window.location.reload();
+	</script>';
+}
 
+add_action( 'yith_wcan_after_query', 'ukh_after_query_reload', 10, 2 ); 
