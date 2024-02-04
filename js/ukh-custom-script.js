@@ -131,5 +131,14 @@
 	    
 	    $('#filter_4646_1 .filter-items.filter-checkbox.level-0').html($checkboxes);
 
+		$(document).ajaxComplete(function(event, xhr, settings) {
+		    if (settings.headers && settings.headers["X-YITH-WCAN"]) {
+		        // Perform actions specific to this AJAX request completion
+		        console.log("AJAX request with X-YITH-WCAN header completed");
+		        
+		        //window.location.reload();
+		    }
+		});
+
 	});
 })(jQuery);
