@@ -136,7 +136,7 @@
 		        // Perform actions specific to this AJAX request completion
 		        console.log("AJAX request with X-YITH-WCAN header completed");
 		        
-		        //window.location.reload();
+		        window.location.reload();
 		    }
 		});
 
