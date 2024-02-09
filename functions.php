@@ -277,7 +277,7 @@ function ukh_track_product_view() {
    wc_setcookie( 'ukh_recently_viewed', implode( '|', $viewed_products ) );
 }
  
-//add_shortcode( 'ukh_recently_viewed_products', 'ukh_recently_viewed_products_shortcode' );
+add_shortcode( 'ukh_recently_viewed_products', 'ukh_recently_viewed_products_shortcode' );
   
 function ukh_recently_viewed_products_shortcode() {
    $viewed_products = ! empty( $_COOKIE['ukh_recently_viewed'] ) ? (array) explode( '|', wp_unslash( $_COOKIE['ukh_recently_viewed'] ) ) : array();
@@ -299,7 +299,7 @@ function recently_viewed_after_single_product() {
     echo do_shortcode('[ukh_recently_viewed_products]');
 }
 
-add_action( 'woocommerce_after_single_product', 'recently_viewed_after_single_product', 20 );
+//add_action( 'woocommerce_after_single_product', 'recently_viewed_after_single_product', 20 );
 
 function ukh_shipping_packages( $packages ) {
 
