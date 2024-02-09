@@ -562,6 +562,10 @@ a {
     display: none !important;
 }
 
+.woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item) {
+    background-color: transparent im !important;
+}
+
 
 @media (min-width: 767px) {
     .admin-bar #main-header {
