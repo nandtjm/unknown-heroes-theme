@@ -563,7 +563,7 @@ a {
 }
 
 .woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item) {
-    background-color: transparent im !important;
+    background-color: transparent !important;
 }
 
 
