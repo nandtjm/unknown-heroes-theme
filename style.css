@@ -620,8 +620,8 @@ a {
     }
 
     .woo-variation-swatches .wvs-archive-variations-wrapper .variable-items-wrapper .variable-item:not(.radio-variable-item) {
-        width: 20px !important;
-        height: 20px !important;
+        /*width: 20px !important;
+        height: 20px !important;*/
     }
 
     .woo-variation-swatches .variable-items-wrapper {
