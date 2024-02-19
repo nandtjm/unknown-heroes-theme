@@ -141,7 +141,7 @@
 		});
 
 		$('.filter-btn-mobile').on('click', function() {
-			$('.yith-wcan-filters').toggleSlide();
+			$('.yith-wcan-filters').slideToggle();
 		});
 	});
 })(jQuery);
