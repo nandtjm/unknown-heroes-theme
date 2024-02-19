@@ -13,7 +13,8 @@
 			if ( is_admin && $(window).width() < 768 ) {
 				// Already added via CSS
 				//marginTop += $('#wpadminbar').outerHeight();
-			} else if ($(window).width() < 480) {
+			}
+			if ($(window).width() < 480) {
 				marginTop = 0;
 			}
 			console.log(marginTop);
