@@ -16,6 +16,7 @@
 			} else if ($(window).width() < 480) {
 				marginTop = 0;
 			}
+			console.log(marginTop);
 			$('#main-content').css('margin-top', marginTop + 'px');
 		}
 
