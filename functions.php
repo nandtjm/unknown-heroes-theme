@@ -385,3 +385,4 @@ function ukh_order_size_filter( $template_path, $template, $atts, $echo ) {
 }
 
 //add_filter( 'yith_wcan_template_path', 'ukh_order_size_filter', 10, 4 );
+add_shortcode('wc_sorting','woocommerce_catalog_ordering');
