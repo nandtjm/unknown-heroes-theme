@@ -140,5 +140,8 @@
 		    }
 		});
 
+		$('.filter-btn-mobile').on('click', function() {
+			$('.yith-wcan-filters').toggleSlide();
+		});
 	});
 })(jQuery);
