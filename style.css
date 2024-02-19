@@ -590,6 +590,10 @@ a {
         align-items: flex-start;
     }
 
+    .catalog-wrapper .woocommerce-ordering {
+        display: none;
+    }
+
     #header-right-icons .elementor-shortcode ul {
         list-style: none !important;
         gap: 5px;
