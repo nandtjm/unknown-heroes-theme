@@ -590,7 +590,8 @@ a {
         align-items: flex-start;
     }
 
-    .catalog-wrapper .woocommerce-ordering {
+    .catalog-wrapper .woocommerce-ordering,
+    .yith-wcan-filters {
         display: none;
     }
 
